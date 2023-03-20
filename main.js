@@ -51,4 +51,6 @@ let result = Boolean;
 };
 
 //get key and use to login with last line of file//
-client.login('');
+let key = require('./key.json');
+
+client.login(key.content);
