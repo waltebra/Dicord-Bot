@@ -1,3 +1,3 @@
-# Dicord-Bot
+# Discord-Bot
 
-#Created by Brady Walters
+# Created by Brady Walters
