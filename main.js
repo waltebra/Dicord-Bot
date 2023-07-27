@@ -4,6 +4,21 @@ const client = new Discord.Client({ intents: ['GUILDS', 'GUILD_EMOJIS_AND_STICKE
 
 const prefix = '`';
 
+//Declare relevant Emotes array
+const Emotes = [
+//{name: 'Yes', id: '<:yea:827713563124170773>'},
+{name: 'Yes', id: '<:brother:1134172811053772914>'},
+{name: 'No', id: '<:conway:1134175175852687602>'}
+//{name: 'No', id: '<:nay:827713602759950376>'}
+];
+
+//Declare array of relevant roles
+const Roles = [
+    {name: 'Role1', id: '790706744988663829'},
+    {name: 'Role2', id: '818947821831061545'},
+    {name: 'Role3', id: '1086362913956171776'}
+];
+
 const fs = require('fs');
 
 client.commands = new Discord.Collection();
@@ -29,7 +44,7 @@ client.on('messageCreate', message => {
             client.commands.get('ping').execute(message, args);
             break
         case 'vote':
-            client.commands.get('vote').execute(message, args, Discord);
+            client.commands.get('vote').execute(message, args, Discord, Emotes, Roles);
         break
         case 'rules':
             client.commands.get('rules').execute(message, args, Discord);
@@ -41,7 +56,7 @@ client.on('messageCreate', message => {
 })
 
 function checkIfRelevant (message) {
-let result = Boolean;
+    let result = Boolean;
 
     if(!message.content.startsWith(prefix) || message.author.bot) {
         result = false;
@@ -52,5 +67,4 @@ let result = Boolean;
 
 //get key and use to login with last line of file//
 let key = require('./key.json');
-
 client.login(key.content);
