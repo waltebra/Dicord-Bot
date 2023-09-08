@@ -39,20 +39,11 @@ client.on('messageCreate', message => {
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    switch(command) {
-        case 'ping':
-            client.commands.get('ping').execute(message, args);
-            break
-        case 'vote':
-            client.commands.get('vote').execute(message, args, Discord, Emotes, Roles);
-        break
-        case 'rules':
-            client.commands.get('rules').execute(message, args, Discord);
-        break
-        case 'about':
-            client.commands.get('about').execute(message, args, Discord)
-        break
-    }
+    try {
+        client.commands.get(command).execute(message,args, Discord, Emotes, Roles);
+    } catch(error) {
+        console.error(error);
+    } 
 })
 
 function checkIfRelevant (message) {

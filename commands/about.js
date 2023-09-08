@@ -1,7 +1,7 @@
 module.exports = {
     name: 'about',
     description: 'Creates an about embed for bot information',
-    execute(message, args, Discord) {
+    execute(message, args, Discord, Emotes, Roles) {
         
         let json = require('../package.json');
 

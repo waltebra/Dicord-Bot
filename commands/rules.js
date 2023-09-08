@@ -1,7 +1,7 @@
 module.exports = {
     name: 'rules',
     description: 'Creates a rules embed for the server rules',
-    execute(message, args, Discord) {
+    execute(message, args, Discord, Emotes, Roles) {
         
 const rulesEmbed = new Discord.MessageEmbed()
 .setTitle('Welcome to the Gungle!')
