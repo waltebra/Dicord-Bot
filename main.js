@@ -21,6 +21,7 @@ const Roles = [
 
 const fs = require('fs');
 
+//Collect command files and set them
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 for(const file of commandFiles) {
@@ -36,13 +37,16 @@ client.once('ready', () => {
 client.on('messageCreate', message => {
     if(!checkIfRelevant(message)) return; //Do nothing if message is irrelevant
 
+    //Get args and first command
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
+    //Try command, catch error and issue a message
     try {
         client.commands.get(command).execute(message,args, Discord, Emotes, Roles);
     } catch(error) {
         console.error(error);
+        message.reply("I do not recognize that command. You can use (`commands) to list my available commands.");
     } 
 })
 
