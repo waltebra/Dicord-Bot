@@ -36,9 +36,7 @@ module.exports = {
                 voteEmbed = new Discord.MessageEmbed()
                 .setTitle('VOTE')
                 .setThumbnail(avatar)
-                .setAuthor(
-                    {name: initiator}
-                )
+                .setAuthor({name: initiator})
                 .addFields(
                     {name: 'Yes Votes', value: votesY, inline: true},
                     {name: 'No Votes', value: votesN, inline: true},

@@ -24,7 +24,7 @@ module.exports = {
             } else {
                 modString = ' + '
             };
-            modString += modifier.valueOf();
+            modString += Math.abs(modifier);
 
             message.channel.send('The result of the dice roll is ' + result + '\n(' + roll  + modString + ')');
         }
