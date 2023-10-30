@@ -1,12 +1,15 @@
 module.exports = {
     name: 'commands',
-    description: 'Creates an about embed for bots commands',
+    description: 'Creates an about embed for bots commands \n Requires no arguments.',
     execute(message, args, Discord, Emotes, Roles) {
         //Get files
         const fs = require('fs');
         let commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 
-        let command = require('commands.js');
+        commandFiles.forEach(file => {
+        })
+
+
 
         //Init the embed
         let commandEmbed = new Discord.MessageEmbed()
@@ -16,10 +19,8 @@ module.exports = {
 
         //Add fields to the embed
         commandFiles.forEach(file => {
-            let fName = file.split('.')[0].toString();
-            let fValue = "about this file";
-
-            let field = {name: fName, value: fValue};
+            let command = require('./' + file);
+            let field = {name: command.name, value: command.description};
 
             commandEmbed.addFields(field);
         });

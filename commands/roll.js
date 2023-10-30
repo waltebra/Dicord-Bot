@@ -1,6 +1,6 @@
 module.exports = {
     name: 'roll',
-    description: 'Rolls a specified dice and adds a modifier (if applicable)',
+    description: 'Rolls a specified dice and adds a modifier (if applicable) \n Requires what sided dice to roll. \n Also accepts an optional modifier and multiplier.',
     execute(message, args, Discord, Emotes, Roles) {
         //Get args (dice, modifier)
         let arguments = args.toString().split(',');

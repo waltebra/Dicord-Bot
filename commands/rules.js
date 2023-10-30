@@ -1,6 +1,6 @@
 module.exports = {
     name: 'rules',
-    description: 'Creates a rules embed for the server rules',
+    description: 'Creates a rules embed for the server rules. \nRequires no additional arguments.',
     execute(message, args, Discord, Emotes, Roles) {
         
 const rulesEmbed = new Discord.MessageEmbed()

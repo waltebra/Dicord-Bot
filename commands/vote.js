@@ -1,6 +1,6 @@
 module.exports = {
     name: 'vote',
-    description: 'Creates a vote for users to react to',
+    description: 'Creates a vote for users to react to. \n Can only be called by privileged roles \n Requires the vote content to be supplied.',
     execute(message, args, Discord, Emotes, Roles) {
 
         let author = message.author;
